@@ -13,7 +13,6 @@ import cv2
 import glob
 import matplotlib.pyplot as plt
 import datasets
-import pcl
 
 from fcn.config import cfg
 from utils.blob import chromatic_transform, add_noise
@@ -91,6 +90,7 @@ class OSDObject(data.Dataset, datasets.imdb):
 
         # Depth image
         if cfg.INPUT == 'DEPTH' or cfg.INPUT == 'RGBD':
+            raise RuntimeError(f"pcl not installed!")
             pcd_filename = filename.replace('image_color', 'pcd')
             pcd_filename = pcd_filename.replace('png', 'pcd')
             pcloud = pcl.load(pcd_filename).to_array()
