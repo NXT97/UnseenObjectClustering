@@ -1,0 +1,27 @@
+name: unseen-object-clustering
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit=10.2.89
+  - python=3.8
+  - pytorch=1.10.2
+  - torchvision
+  - pcl=1.9
+  - cython
+
+  - pip
+
+  - pip: - opencv-python == 4.2.0.34
+    - transforms3d
+    - pillow
+    - IPython
+    - matplotlib
+    - easydict
+    - pyyaml
+    - future
+    - scipy
+    - imageio
+    - python-pcl
+    - gdown
