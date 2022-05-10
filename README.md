@@ -31,13 +31,10 @@ If you find Unseen Object Clustering useful in your research, please consider ci
 
 ### Installation
 
-1. Install [PyTorch](https://pytorch.org/).
-
-2. Install python packages
-   ```Shell
-   pip install -r requirement.txt
-   ```
-
+```bash
+conda env create -f environment.yml
+pip install -e .
+```
 
 ### Download
 
