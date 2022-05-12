@@ -11,7 +11,7 @@ from fcn.config import cfg, cfg_from_file
 from fcn.test_dataset import test_sample
 from utils.mask import visualize_segmentation
 
-from polygrasp.pointcloud_rpc import PointCloudServer
+from polygrasp.segmentation_rpc import SegmentationServer
 
 
 def get_path(path):
@@ -160,7 +160,7 @@ if __name__ == "__main__":
             
 
 
-    class RgbdServer(PointCloudServer):
+    class RgbdServer(SegmentationServer):
         def _get_segmentations(self, rgbd):
             rgb = rgbd[:, :, :3].astype(np.uint8)
             d = (rgbd[:, :, 3] / 1000.).astype(np.float32)
