@@ -229,7 +229,7 @@ def filter_labels(labels, bboxes):
 
 
 # test a single sample
-def test_sample(sample, network, network_crop):
+def test_sample(sample, network, network_crop, num_seeds=100):
 
     # construct input
     image = sample['image_color'].cuda()
@@ -245,7 +245,7 @@ def test_sample(sample, network, network_crop):
 
     # run network
     features = network(image, label, depth).detach()
-    out_label, selected_pixels = clustering_features(features, num_seeds=100)
+    out_label, selected_pixels = clustering_features(features, num_seeds=num_seeds)
 
     if depth is not None:
         # filter labels on zero depth

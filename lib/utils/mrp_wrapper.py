@@ -123,7 +123,7 @@ if __name__ == "__main__":
         depth_blob = torch.from_numpy(xyz_img).permute(2, 0, 1)
         sample['depth'] = depth_blob.unsqueeze(0)
 
-        out_label, out_label_refined = test_sample(sample, network, network_crop)
+        out_label, out_label_refined = test_sample(sample, network, network_crop, num_seeds=50)
 
         # publish segmentation mask
         label = out_label[0].cpu().numpy()
@@ -167,6 +167,7 @@ if __name__ == "__main__":
 
             print("Running segmentation network...")
             prev_time = time.time()
+
             with torch.no_grad():
                 label, label_refined, im_label, im_label_refined = run_network(rgb, d, fx=617.8477783203125, fy=618.071044921875, px=331.7496032714844, py=248.904541015625)
             
