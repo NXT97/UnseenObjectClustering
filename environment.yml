@@ -4,9 +4,11 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - cudatoolkit=11.3
+  - pytorch=1.11.0
+  - pytorch-mutex=1.0=cuda
+  - cudatoolkit=10.2
+
   - python=3.8
-  - pytorch=1.10.2
   - torchvision
   - pcl=1.9
   - cython
