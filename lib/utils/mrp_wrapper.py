@@ -123,7 +123,7 @@ if __name__ == "__main__":
         depth_blob = torch.from_numpy(xyz_img).permute(2, 0, 1)
         sample['depth'] = depth_blob.unsqueeze(0)
 
-        out_label, out_label_refined = test_sample(sample, network, network_crop, num_seeds=50)
+        out_label, out_label_refined = test_sample(sample, network, network_crop, num_seeds=40)
 
         # publish segmentation mask
         label = out_label[0].cpu().numpy()
